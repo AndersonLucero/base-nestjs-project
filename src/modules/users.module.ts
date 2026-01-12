@@ -1,6 +1,13 @@
 import { Module } from '@nestjs/common';
 import { UsersController } from '../infrastructure/http/controllers/users.controller';
-import { CreateUserUseCase, GetUserUseCase } from '../application/use-cases';
+import {
+  CreateUserUseCase,
+  GetUserUseCase,
+  LoginUseCase,
+  UpdateUserUseCase,
+  DeleteUserUseCase,
+  ListUsersUseCase,
+} from '../application/use-cases';
 import { USER_REPOSITORY } from '../domain/repositories';
 import { PrismaUserRepository } from '../infrastructure/database/postgres/repositories/prisma-user.repository';
 import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma.service';
@@ -11,11 +18,23 @@ import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma
     PrismaService,
     CreateUserUseCase,
     GetUserUseCase,
+    LoginUseCase,
+    UpdateUserUseCase,
+    DeleteUserUseCase,
+    ListUsersUseCase,
     {
       provide: USER_REPOSITORY,
       useClass: PrismaUserRepository,
     },
   ],
-  exports: [USER_REPOSITORY],
+  exports: [
+    USER_REPOSITORY,
+    CreateUserUseCase,
+    GetUserUseCase,
+    LoginUseCase,
+    UpdateUserUseCase,
+    DeleteUserUseCase,
+    ListUsersUseCase,
+  ],
 })
 export class UsersModule { }
