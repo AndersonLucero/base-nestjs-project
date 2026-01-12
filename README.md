@@ -77,8 +77,9 @@ The project is structured into three distinct layers:
 -   **Hexagonal Architecture**: Separation of concerns.
 -   **JWT Auth**: Secure authentication with Guards and Strategies.
 -   **API Docs**: Auto-generated Swagger/OpenAPI documentation.
--   **Interceptors**: Global logging and response transformation.
--   **Barrel Files**: Clean imports.
+-   **Advanced Config**: Type-safe configuration with Joi validation.
+-   **Global Filter**: Standardized HTTP exception handling.
+-   **Domain Events**: Event-driven architecture components.
 
 ## 🧪 Testing
 
