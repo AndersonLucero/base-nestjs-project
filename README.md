@@ -52,6 +52,11 @@ The server will start at `http://localhost:3000`.
 
 ---
 
+### 6. 📚 API Documentation
+The API is documented using Swagger/OpenAPI.
+-   Access the interactive UI at: `http://localhost:3000/api/docs`
+-   It provides a complete reference of endpoints, DTOs, and authentication.
+
 ## 🐳 Docker Deployment (Full Stack)
 If you want to run **both** the app and database in containers:
 ```bash
@@ -71,6 +76,7 @@ The project is structured into three distinct layers:
 ### Key Features
 -   **Hexagonal Architecture**: Separation of concerns.
 -   **JWT Auth**: Secure authentication with Guards and Strategies.
+-   **API Docs**: Auto-generated Swagger/OpenAPI documentation.
 -   **Interceptors**: Global logging and response transformation.
 -   **Barrel Files**: Clean imports.
 
