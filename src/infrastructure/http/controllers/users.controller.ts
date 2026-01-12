@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 import {
   CreateUserUseCase,
   GetUserUseCase,
@@ -10,6 +11,8 @@ import {
 import { CreateUserDto, UpdateUserDto } from '../../../application/dto';
 
 @ApiTags('Users')
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard)
 @Controller('users')
 export class UsersController {
   constructor(
@@ -28,7 +31,7 @@ export class UsersController {
     return this.createUserUseCase.execute(createUserDto);
   }
 
-  @ApiBearerAuth()
+
   @ApiOperation({ summary: 'Get all users' })
   @ApiResponse({ status: 200, description: 'Return all users' })
   @Get()
@@ -45,7 +48,7 @@ export class UsersController {
     return this.getUserUseCase.execute(id);
   }
 
-  @ApiBearerAuth()
+
   @ApiOperation({ summary: 'Update user details' })
   @ApiResponse({ status: 200, description: 'The user has been successfully updated.' })
   @ApiResponse({ status: 404, description: 'User not found' })
@@ -54,7 +57,7 @@ export class UsersController {
     return this.updateUserUseCase.execute(id, updateUserDto);
   }
 
-  @ApiBearerAuth()
+
   @ApiOperation({ summary: 'Delete user' })
   @ApiResponse({ status: 200, description: 'The user has been successfully deleted.' })
   @Delete(':id')
