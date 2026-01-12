@@ -3,7 +3,6 @@ import { UsersController } from '../infrastructure/http/controllers/users.contro
 import {
   CreateUserUseCase,
   GetUserUseCase,
-  LoginUseCase,
   UpdateUserUseCase,
   DeleteUserUseCase,
   ListUsersUseCase,
@@ -18,7 +17,7 @@ import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma
     PrismaService,
     CreateUserUseCase,
     GetUserUseCase,
-    LoginUseCase,
+
     UpdateUserUseCase,
     DeleteUserUseCase,
     ListUsersUseCase,
@@ -31,7 +30,7 @@ import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma
     USER_REPOSITORY,
     CreateUserUseCase,
     GetUserUseCase,
-    LoginUseCase,
+
     UpdateUserUseCase,
     DeleteUserUseCase,
     ListUsersUseCase,
