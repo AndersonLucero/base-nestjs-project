@@ -9,7 +9,7 @@ Follow these steps to set up the project from scratch.
 ### 1. 📥 Clone & Install
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/AndersonLucero/base-nestjs-project.git
 cd base-nestjs-project
 
 # Install dependencies
