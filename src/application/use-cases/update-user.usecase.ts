@@ -2,11 +2,12 @@ import { Inject, Injectable } from '@nestjs/common';
 import { UserRepository } from '../../domain/repositories';
 import { UpdateUserDto } from '../dto';
 import { User } from '../../domain/entities';
+import { TOKENS } from '../../shared/constants/tokens';
 
 @Injectable()
 export class UpdateUserUseCase {
     constructor(
-        @Inject('USER_REPOSITORY')
+        @Inject(TOKENS.USER_REPOSITORY)
         private readonly userRepository: UserRepository,
     ) { }
 

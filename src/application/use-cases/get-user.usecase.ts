@@ -1,11 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { User } from '../../domain/entities';
-import { USER_REPOSITORY, UserRepository } from '../../domain/repositories';
+import { UserRepository } from '../../domain/repositories';
+import { TOKENS } from '../../shared/constants/tokens';
 
 @Injectable()
 export class GetUserUseCase {
   constructor(
-    @Inject(USER_REPOSITORY)
+    @Inject(TOKENS.USER_REPOSITORY)
     private readonly userRepository: UserRepository,
   ) { }
 

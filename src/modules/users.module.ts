@@ -7,9 +7,9 @@ import {
   DeleteUserUseCase,
   ListUsersUseCase,
 } from '../application/use-cases';
-import { USER_REPOSITORY } from '../domain/repositories';
 import { PrismaUserRepository } from '../infrastructure/database/postgres/repositories/prisma-user.repository';
 import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma.service';
+import { TOKENS } from '../shared/constants/tokens';
 
 @Module({
   controllers: [UsersController],
@@ -22,12 +22,12 @@ import { PrismaService } from '../infrastructure/database/postgres/prisma/prisma
     DeleteUserUseCase,
     ListUsersUseCase,
     {
-      provide: USER_REPOSITORY,
+      provide: TOKENS.USER_REPOSITORY,
       useClass: PrismaUserRepository,
     },
   ],
   exports: [
-    USER_REPOSITORY,
+    TOKENS.USER_REPOSITORY,
     CreateUserUseCase,
     GetUserUseCase,
 
